@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 大阪奈良 7天6夜 完整行程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto+Sans+TC', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+        .tab-active { border-bottom: 4px solid #ef4444; color: #ef4444; }
+        .glass-morphism { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header / Hero -->
+    <header class="hero-gradient h-screen flex flex-col items-center justify-center text-white text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">2026 大阪奈良之旅</h1>
+        <p class="text-xl md:text-2xl mb-8 opacity-90">2026/05/17 – 2026/05/23 (7天6夜)</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#itinerary" class="bg-red-500 hover:bg-red-600 px-8 py-3 rounded-full font-bold transition-colors">查看行程表</a>
+            <a href="#usj-strategy" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-bold transition-colors">USJ 25週年攻略</a>
+        </div>
+    </header>
+
+    <!-- Basic Info Bar -->
+    <div class="sticky top-0 z-50 glass-morphism border-b shadow-sm overflow-x-auto no-scrollbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 min-w-[600px]">
+            <div class="flex items-center gap-2 font-bold text-red-500">
+                <i data-lucide="plane"></i> CI152 / CI157
+            </div>
+            <div class="flex gap-6 text-sm">
+                <button onclick="scrollToDay(1)" class="hover:text-red-500 font-medium">DAY 1</button>
+                <button onclick="scrollToDay(2)" class="hover:text-red-500 font-medium">DAY 2</button>
+                <button onclick="scrollToDay(3)" class="hover:text-red-500 font-medium">DAY 3</button>
+                <button onclick="scrollToDay(4)" class="hover:text-red-500 font-medium">DAY 4</button>
+                <button onclick="scrollToDay(5)" class="hover:text-red-500 font-medium">DAY 5</button>
+                <button onclick="scrollToDay(6)" class="hover:text-red-500 font-medium">DAY 6</button>
+                <button onclick="scrollToDay(7)" class="hover:text-red-500 font-medium">DAY 7</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        
+        <!-- Summary Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="bg-white p-6 rounded-2xl shadow-md card-hover border-l-4 border-blue-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="hotel" class="text-blue-500"></i>
+                    <h3 class="text-xl font-bold">住宿安排</h3>
+                </div>
+                <div class="space-y-3 text-sm">
+                    <p><strong>5/17-5/20:</strong><br>環球港口飯店 (Hotel Universal Port)</p>
+                    <p><strong>5/20-5/23:</strong><br>karaksa hotel grande Shin-Osaka Tower</p>
+                </div>
+            </div>
+            <div id="usj-strategy" class="bg-white p-6 rounded-2xl shadow-md card-hover border-l-4 border-yellow-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="sparkles" class="text-yellow-500"></i>
+                    <h3 class="text-xl font-bold">25週年亮點</h3>
+                </div>
+                <ul class="text-sm list-disc list-inside space-y-1">
+                    <li>Discover U!!! 慶典盛大展開</li>
+                    <li>25隻皮卡丘限定大遊行</li>
+                    <li>期間限定：葬送的芙莉蓮合作</li>
+                    <li>特別版紀念品一入園必搶</li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-md card-hover border-l-4 border-green-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="wallet" class="text-green-500"></i>
+                    <h3 class="text-xl font-bold">行前準備</h3>
+                </div>
+                <div class="text-sm space-y-2">
+                    <p>✅ 預約機場計程車 (尚未完成)</p>
+                    <p>✅ 兒童 ICOCA (需帶護照)</p>
+                    <p>✅ 下載 USJ 官方 APP</p>
+                    <p>✅ 下載 Japan Transit Planner</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary Sections -->
+        <div id="itinerary" class="space-y-12">
+            
+            <!-- Day 1 -->
+            <section id="day-1" class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="bg-gray-800 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/17 (週日)</span>
+                        <h2 class="text-3xl font-bold">DAY 1: 抵達大阪 & USJ 商店街</h2>
+                    </div>
+                    <div class="bg-red-500 p-3 rounded-full"><i data-lucide="plane-landing"></i></div>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="font-mono font-bold text-gray-400">12:50</div>
+                                <div>
+                                    <h4 class="font-bold">抵達關西機場 (KIX)</h4>
+                                    <p class="text-sm text-gray-600">辦理出關並領取行李。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="font-mono font-bold text-gray-400">14:20</div>
+                                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                                    <h4 class="font-bold text-blue-700">購買兒童版 ICOCA</h4>
+                                    <p class="text-sm text-gray-600 mt-1">地點：JR 售票處 (綠色窗口)。必備：小孩護照正本、2000日圓現金。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="font-mono font-bold text-gray-400">15:00</div>
+                                <div>
+                                    <h4 class="font-bold">前往飯店 (Hotel Universal Port)</h4>
+                                    <p class="text-sm text-gray-600">搭乘「JR 關空快速」至【西九條站】，轉乘「JR 夢咲線」至【Universal City】。</p>
+                                    <a href="https://www.google.com/maps/dir/Kansai+International+Airport,+1+Senshukukonaka,+Tajiri,+Sennan+District,+Osaka+549-0001+Japan/Hotel+Universal+Port,+Osaka" target="_blank" class="inline-block mt-2 text-xs text-blue-600 underline">查看 Google Maps 路線圖</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold flex items-center gap-2"><i data-lucide="video" class="text-red-500"></i> 交通攻略影片</h4>
+                            <div class="aspect-video bg-gray-200 rounded-xl overflow-hidden relative group">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/fA9Tf7T09X0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 2 & 3: USJ Special -->
+            <section id="day-2-3" class="bg-yellow-50 rounded-3xl overflow-hidden shadow-lg border border-yellow-200">
+                <div class="bg-yellow-500 text-white p-6">
+                    <h2 class="text-3xl font-bold flex items-center gap-3"><i data-lucide="star"></i> USJ 25週年戰略專區</h2>
+                    <p class="mt-1 opacity-90">5/18 (週一) - 5/19 (週二) 全攻略</p>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-200">
+                            <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-yellow-600">
+                                <i data-lucide="calendar-check"></i> 抽籤與入園
+                            </h4>
+                            <ul class="text-sm space-y-3">
+                                <li><strong>APP 必掃：</strong> 前一晚掃描門票。一入園即抽【瑪利歐整理券】。</li>
+                                <li><strong>黃金 1.5 小時：</strong> 提早 1.5 小時到場排隊入園，爭取更多設施時間。</li>
+                                <li><strong>兩次入園法：</strong> 快速通關時段與整理券錯開，體驗白天/晚上的瑪利歐園區。</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-200">
+                            <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-yellow-600">
+                                <i data-lucide="shopping-bag"></i> 限定必買
+                            </h4>
+                            <ul class="text-sm space-y-3">
+                                <li><strong>皮卡丘 25週年：</strong> 遊行集結 25 隻皮卡丘，紀念品必搶。</li>
+                                <li><strong>能量手環：</strong> 瑪利歐互動遊戲核心 (4,900日圓)。</li>
+                                <li><strong>星星爆米花桶：</strong> 必請店員將爆米花與桶子分裝，保持乾淨。</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-200">
+                            <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-yellow-600">
+                                <i data-lucide="info"></i> 實用撇步
+                            </h4>
+                            <ul class="text-sm space-y-3">
+                                <li><strong>三根掃帚：</strong> 建議用餐時間：傍晚。喝奶油啤酒看城堡。</li>
+                                <li><strong>退稅地點：</strong> 入口右手邊 STUDIO GIFTS。關門前1小時人多，建議提前。</li>
+                                <li><strong>避暑方案：</strong> 攜帶摺疊傘，排隊遮陽極度重要。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold mb-4">瑪利歐園區互動地圖導覽</h4>
+                            <div class="aspect-video bg-gray-200 rounded-xl overflow-hidden">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/5a6G_0iT3tA" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">USJ 2026 最新設施預覽</h4>
+                            <div class="aspect-video bg-gray-200 rounded-xl overflow-hidden">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/yQvD6BByT_o" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 4 -->
+            <section id="day-4" class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="bg-blue-600 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/20 (週三)</span>
+                        <h2 class="text-3xl font-bold">DAY 4: 海遊館 & 寶可夢中心</h2>
+                    </div>
+                    <div class="bg-blue-400 p-3 rounded-full"><i data-lucide="waves"></i></div>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-blue-700">🚢 海遊館接駁船 (Captain Line)</h4>
+                                <p class="text-sm text-gray-600">飯店後方「環球城港口」搭船，10分鐘抵達海遊館。必看：鯨鯊、企鵝、海豹。</p>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-xl border border-orange-100">
+                                <h4 class="font-bold text-orange-700">新飯店入住：karaksa hotel grande</h4>
+                                <p class="text-sm text-gray-600">下午搭乘前往【新大阪】站，位置極佳。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-pink-600">👾 寶可夢中心 (Osaka DX)</h4>
+                                <p class="text-sm text-gray-600">搭乘御堂筋線至【梅田】大丸梅田店 13F。寶可夢迷天堂！</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">海遊館攻略</h4>
+                            <div class="aspect-video bg-gray-200 rounded-xl overflow-hidden">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/S2Y2_Y79Ntc" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 5 -->
+            <section id="day-5" class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="bg-green-700 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/21 (週四)</span>
+                        <h2 class="text-3xl font-bold">DAY 5: 奈良古都神鹿之旅</h2>
+                    </div>
+                    <div class="bg-green-500 p-3 rounded-full text-white">🦌</div>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-4">
+                            <h4 class="font-bold">路線：新大阪 → 奈良</h4>
+                            <ul class="text-sm list-disc list-inside space-y-2 text-gray-600">
+                                <li><strong>奈良公園：</strong> 餵鹿餅 (200日圓)。</li>
+                                <li><strong>東大寺：</strong> 參拜巨大佛像。</li>
+                                <li><strong>春日大社：</strong> 欣賞萬燈籠與森林步道。</li>
+                                <li><strong>興福寺：</strong> 觀看五重塔。</li>
+                            </ul>
+                            <a href="https://www.google.com/maps/search/Nara+Park+Todaiji+Kasuga+Taisha" target="_blank" class="inline-block mt-2 text-xs text-blue-600 underline">查看奈良景點地圖</a>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">奈良一日遊行程參考</h4>
+                            <div class="aspect-video bg-gray-200 rounded-xl overflow-hidden">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/U33r_pG9R84" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 6 -->
+            <section id="day-6" class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="bg-red-700 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/22 (週五)</span>
+                        <h2 class="text-3xl font-bold">DAY 6: 大阪市區血拼美食</h2>
+                    </div>
+                    <div class="bg-red-400 p-3 rounded-full"><i data-lucide="shopping-cart"></i></div>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h4 class="font-bold mb-3">吃貨行程攻略</h4>
+                            <ul class="text-sm space-y-3">
+                                <li><strong>黑門市場：</strong> 必吃新鮮海產 (早午餐)。</li>
+                                <li><strong>道頓堀：</strong> 固力果跑跑人合照，一蘭拉麵、大阪燒。</li>
+                                <li><strong>心齋橋：</strong> 藥妝店、雜貨採購。</li>
+                                <li><strong>老爺爺蛋糕：</strong> 必買剛出爐起司蛋糕。</li>
+                            </ul>
+                        </div>
+                        <div class="aspect-video bg-gray-200 rounded-xl overflow-hidden">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/5U9T4mJ6Nnc" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 7 -->
+            <section id="day-7" class="bg-gray-100 rounded-3xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="bg-gray-600 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/23 (週六)</span>
+                        <h2 class="text-3xl font-bold">DAY 7: 滿載而歸</h2>
+                    </div>
+                    <div class="bg-white text-gray-800 p-3 rounded-full"><i data-lucide="home"></i></div>
+                </div>
+                <div class="p-8">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-1 space-y-4">
+                            <h4 class="font-bold">返台計畫</h4>
+                            <p class="text-sm">09:30 從新大阪出發 → 搭乘【Haruka Express】直達關西機場。</p>
+                            <p class="text-sm text-red-600 font-bold">CI157 | 13:10 起飛 | 建議 11:00 前抵達機場辦理登機。</p>
+                        </div>
+                        <div class="flex-1 bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
+                            <h5 class="font-bold text-gray-500 mb-2">行李檢查清單</h5>
+                            <div class="flex justify-center gap-4 text-xs font-medium">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full">護照/機票</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full">ICOCA/票券</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full">Wi-Fi/Sim卡</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Practical Tools Section -->
+        <section class="mt-20 bg-gray-800 rounded-3xl p-8 text-white">
+            <h3 class="text-2xl font-bold mb-6 text-center">實用查詢工具</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="https://world.jorudan.co.jp/mln/zh-tw/" target="_blank" class="bg-gray-700 p-6 rounded-2xl hover:bg-gray-600 transition-colors block text-center">
+                    <i data-lucide="map" class="mx-auto mb-3"></i>
+                    <h5 class="font-bold">Japan Transit Planner</h5>
+                    <p class="text-xs opacity-70 mt-2">查詢精準車資、轉乘與時間</p>
+                </a>
+                <div class="bg-gray-700 p-6 rounded-2xl text-center">
+                    <i data-lucide="info" class="mx-auto mb-3"></i>
+                    <h5 class="font-bold">USJ 官網</h5>
+                    <p class="text-xs opacity-70 mt-2">確認營業時間與表演時刻表</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-2xl text-center">
+                    <i data-lucide="help-circle" class="mx-auto mb-3"></i>
+                    <h5 class="font-bold">緊急連絡</h5>
+                    <p class="text-xs opacity-70 mt-2">保存保險與駐日代表處電話</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 text-center text-gray-500 text-sm">
+        <p>© 2026 Osaka Nara Travel Planner. Have a nice trip!</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        function scrollToDay(day) {
+            const elementId = day >= 2 && day <= 3 ? 'day-2-3' : `day-${day}`;
+            const element = document.getElementById(elementId);
+            if (element) {
+                const offset = 80; // Adjust for sticky header
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Highlight active day based on scroll position
+        window.addEventListener('scroll', () => {
+            // Logic to highlight the nav buttons could go here
+        });
+    </script>
