@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 大阪奈良 7天6夜 完整行程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto+Sans+TC', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+        .tab-active { border-bottom: 4px solid #ef4444; color: #ef4444; }
+        .glass-morphism { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .spot-card { border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; background: #ffffff; }
+        .spot-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+        .spot-body { padding: 14px; }
+        .spot-body p { font-size: 1rem; line-height: 1.7; color: #334155; }
+        .spot-link { display: inline-block; margin-top: 8px; font-size: 1rem; color: #2563eb; text-decoration: underline; }
+        .zoomable { cursor: zoom-in; transition: transform 0.25s ease; }
+        .zoomable:hover { transform: scale(1.015); }
+        .zoom-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.82);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 20px;
+        }
+        .zoom-modal.open { display: flex; }
+        .zoom-modal img { max-width: min(1200px, 94vw); max-height: 86vh; border-radius: 14px; box-shadow: 0 20px 48px rgba(0,0,0,0.45); }
+        .zoom-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .trip-table-wrap { margin-top: 16px; }
+        .trip-table-title { font-size: 1rem; font-weight: 700; color: #1f2937; margin-bottom: 8px; }
+        .trip-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #f8fafc;
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+        .trip-table th,
+        .trip-table td {
+            border: 1px solid #e5e7eb;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+        .trip-table th { background: #eff6ff; width: 28%; color: #1e3a8a; }
+        .favorites-panel {
+            margin: 0 0 28px;
+            background: #fff7ed;
+            border: 1px solid #fdba74;
+            border-radius: 16px;
+            padding: 16px;
+        }
+        .favorites-list { margin: 10px 0 0; padding-left: 20px; color: #7c2d12; }
+        .favorites-empty { margin-top: 8px; color: #9a3412; font-size: 0.95rem; }
+        .favorite-btn {
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.92rem;
+            border: 1px solid #f59e0b;
+            background: #fff;
+            color: #92400e;
+            border-radius: 999px;
+            padding: 6px 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .favorite-btn:hover { background: #fff7ed; }
+        .favorite-btn.active {
+            background: #f59e0b;
+            color: #fff;
+            border-color: #d97706;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header / Hero -->
+    <header class="hero-gradient h-screen flex flex-col items-center justify-center text-white text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">2026 大阪奈良之旅</h1>
+        <p class="text-xl md:text-2xl mb-8 opacity-90">2026/05/17 – 2026/05/23 (7天6夜)</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#itinerary" class="bg-red-500 hover:bg-red-600 px-8 py-3 rounded-full font-bold transition-colors">查看行程表</a>
+            <a href="#usj-strategy" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-bold transition-colors">USJ 25週年攻略</a>
+        </div>
+    </header>
+
+    <!-- Basic Info Bar -->
+    <div class="sticky top-0 z-50 glass-morphism border-b shadow-sm overflow-x-auto no-scrollbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 min-w-[600px]">
+            <div class="flex items-center gap-2 font-bold text-red-500">
+                <i data-lucide="plane"></i> CI152 / CI157
+            </div>
+            <div class="flex gap-6 text-sm">
+                <button onclick="scrollToDay(1)" class="hover:text-red-500 font-medium">DAY 1</button>
+                <button onclick="scrollToDay(2)" class="hover:text-red-500 font-medium">DAY 2</button>
+                <button onclick="scrollToDay(3)" class="hover:text-red-500 font-medium">DAY 3</button>
+                <button onclick="scrollToDay(4)" class="hover:text-red-500 font-medium">DAY 4</button>
+                <button onclick="scrollToDay(5)" class="hover:text-red-500 font-medium">DAY 5</button>
+                <button onclick="scrollToDay(6)" class="hover:text-red-500 font-medium">DAY 6</button>
+                <button onclick="scrollToDay(7)" class="hover:text-red-500 font-medium">DAY 7</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        
+        <!-- Summary Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="bg-white p-6 rounded-2xl shadow-md card-hover border-l-4 border-blue-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="hotel" class="text-blue-500"></i>
+                    <h3 class="text-xl font-bold">住宿安排</h3>
+                </div>
+                <div class="space-y-3 text-sm">
+                    <p><strong>5/17-5/20:</strong><br>環球港口飯店 (Hotel Universal Port)</p>
+                    <p><strong>5/20-5/23:</strong><br>karaksa hotel grande Shin-Osaka Tower</p>
+                </div>
+            </div>
+            <div id="usj-strategy" class="bg-white p-6 rounded-2xl shadow-md card-hover border-l-4 border-yellow-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="sparkles" class="text-yellow-500"></i>
+                    <h3 class="text-xl font-bold">25週年亮點</h3>
+                </div>
+                <ul class="text-sm list-disc list-inside space-y-1">
+                    <li>Discover U!!! 慶典盛大展開</li>
+                    <li>25隻皮卡丘限定大遊行</li>
+                    <li>期間限定：葬送的芙莉蓮合作</li>
+                    <li>特別版紀念品一入園必搶</li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-md card-hover border-l-4 border-green-500">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="wallet" class="text-green-500"></i>
+                    <h3 class="text-xl font-bold">行前準備</h3>
+                </div>
+                <div class="text-sm space-y-2">
+                    <p>✅ 預約機場計程車 (尚未完成)</p>
+                    <p>✅ 兒童 ICOCA (需帶護照)</p>
+                    <p>✅ 下載 USJ 官方 APP</p>
+                    <p>✅ 下載 Japan Transit Planner</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="favorites-panel" aria-label="我的收藏行程">
+            <h3 class="text-xl font-bold text-amber-800">我的收藏行程</h3>
+            <p class="text-sm text-amber-700 mt-1">在景點卡片按「收藏到我的行程」後，會自動儲存在此瀏覽器。</p>
+            <ul id="favorites-list" class="favorites-list"></ul>
+            <p id="favorites-empty" class="favorites-empty">目前尚未收藏景點。</p>
+        </section>
+
+        <!-- Itinerary Sections -->
+        <div id="itinerary" class="space-y-12">
+            
+            <!-- Day 1 -->
+            <section id="day-1" class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="bg-gray-800 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/17 (週日)</span>
+                        <h2 class="text-3xl font-bold">DAY 1: 抵達大阪 & USJ 商店街</h2>
+                    </div>
+                    <div class="bg-red-500 p-3 rounded-full"><i data-lucide="plane-landing"></i></div>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="font-mono font-bold text-gray-400">12:50</div>
+                                <div>
+                                    <h4 class="font-bold">抵達關西機場 (KIX)</h4>
+                                    <p class="text-sm text-gray-600">辦理出關並領取行李。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="font-mono font-bold text-gray-400">14:20</div>
+                                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                                    <h4 class="font-bold text-blue-700">購買兒童版 ICOCA</h4>
+                                    <p class="text-sm text-gray-600 mt-1">地點：JR 售票處 (綠色窗口)。必備：小孩護照正本、2000日圓現金。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="font-mono font-bold text-gray-400">15:00</div>
+                                <div>
+                                    <h4 class="font-bold">前往飯店 (Hotel Universal Port)</h4>
+                                    <p class="text-sm text-gray-600">搭乘「JR 關空快速」至【西九條站】，轉乘「JR 夢咲線」至【Universal City】。</p>
+                                    <a href="https://www.google.com/maps/dir/Kansai+International+Airport,+1+Senshukukonaka,+Tajiri,+Sennan+District,+Osaka+549-0001+Japan/Hotel+Universal+Port,+Osaka" target="_blank" class="inline-block mt-2 text-xs text-blue-600 underline">查看 Google Maps 路線圖</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold flex items-center gap-2"><i data-lucide="map-pinned" class="text-red-500"></i> Day1 景點呈現</h4>
+                            <article class="spot-card">
+                                <img src="https://images.unsplash.com/photo-1580944647281-8e3f0065a88f?auto=format&fit=crop&w=1400&q=80" alt="關西機場與JR交通示意">
+                                <div class="spot-body">
+                                    <h5 class="font-bold text-lg mb-2">關西機場到 USJ 交通動線</h5>
+                                    <p>關空快速轉夢咲線是轉乘次數最少且親子友善的走法，西九條站務必看清楚櫻島方向再上車，能有效避免搭錯月台。</p>
+                                    <a class="spot-link" href="https://www.google.com/maps/dir/Kansai+International+Airport/Nishikujo+Station/Universal+City+Station" target="_blank" rel="noopener noreferrer">開啟交通路線地圖</a>
+                                </div>
+                            </article>
+                            <article class="spot-card">
+                                <img src="https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?auto=format&fit=crop&w=1400&q=80" alt="Universal CityWalk 夜景氛圍">
+                                <div class="spot-body">
+                                    <h5 class="font-bold text-lg mb-2">Universal CityWalk 晚間散步</h5>
+                                    <p>第一晚以熟悉動線為主，先逛商店街與官方商店，把隔天需要的園區小物先買齊，能減少 Day2 入園後的採購排隊時間。</p>
+                                    <a class="spot-link" href="https://www.google.com/maps/place/Universal+CityWalk+Osaka" target="_blank" rel="noopener noreferrer">開啟商店街地圖</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="trip-table-wrap">
+                        <h4 class="trip-table-title">交通時間 / 預估費用</h4>
+                        <table class="trip-table">
+                            <thead>
+                                <tr>
+                                    <th>路段</th>
+                                    <th>預估時間</th>
+                                    <th>預估費用</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>KIX 出關 + 領行李 + 買 ICOCA</td>
+                                    <td>約 90 分鐘</td>
+                                    <td>兒童 ICOCA 2000 日圓（含押金 500）</td>
+                                </tr>
+                                <tr>
+                                    <td>關西機場 → 西九條 → Universal City</td>
+                                    <td>約 70-80 分鐘</td>
+                                    <td>單程約 1200-1300 日圓/人</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 2 & 3: USJ Special -->
+            <section id="day-2-3" class="bg-yellow-50 rounded-3xl overflow-hidden shadow-lg border border-yellow-200">
+                <div class="bg-yellow-500 text-white p-6">
+                    <h2 class="text-3xl font-bold flex items-center gap-3"><i data-lucide="star"></i> USJ 25週年戰略專區</h2>
+                    <p class="mt-1 opacity-90">5/18 (週一) - 5/19 (週二) 全攻略</p>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-200">
+                            <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-yellow-600">
+                                <i data-lucide="calendar-check"></i> 抽籤與入園
+                            </h4>
+                            <ul class="text-sm space-y-3">
+                                <li><strong>APP 必掃：</strong> 前一晚掃描門票。一入園即抽【瑪利歐整理券】。</li>
+                                <li><strong>黃金 1.5 小時：</strong> 提早 1.5 小時到場排隊入園，爭取更多設施時間。</li>
+                                <li><strong>兩次入園法：</strong> 快速通關時段與整理券錯開，體驗白天/晚上的瑪利歐園區。</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-200">
+                            <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-yellow-600">
+                                <i data-lucide="shopping-bag"></i> 限定必買
+                            </h4>
+                            <ul class="text-sm space-y-3">
+                                <li><strong>皮卡丘 25週年：</strong> 遊行集結 25 隻皮卡丘，紀念品必搶。</li>
+                                <li><strong>能量手環：</strong> 瑪利歐互動遊戲核心 (4,900日圓)。</li>
+                                <li><strong>星星爆米花桶：</strong> 必請店員將爆米花與桶子分裝，保持乾淨。</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-200">
+                            <h4 class="font-bold text-lg mb-3 flex items-center gap-2 text-yellow-600">
+                                <i data-lucide="info"></i> 實用撇步
+                            </h4>
+                            <ul class="text-sm space-y-3">
+                                <li><strong>三根掃帚：</strong> 建議用餐時間：傍晚。喝奶油啤酒看城堡。</li>
+                                <li><strong>退稅地點：</strong> 入口右手邊 STUDIO GIFTS。關門前1小時人多，建議提前。</li>
+                                <li><strong>避暑方案：</strong> 攜帶摺疊傘，排隊遮陽極度重要。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 grid md:grid-cols-2 gap-8">
+                        <article class="spot-card">
+                            <img src="https://images.unsplash.com/photo-1616077168079-7e09a677fb2b?auto=format&fit=crop&w=1400&q=80" alt="USJ 園區視覺示意圖">
+                            <div class="spot-body">
+                                <h4 class="font-bold text-lg mb-2">Day2 重點：進園先拿時段</h4>
+                                <p>依照 USJ 入園節奏，前 30 分鐘最關鍵，先抽 Nintendo 整理券，再確認水世界與晚餐時段，整天體驗會更順。</p>
+                                <a class="spot-link" href="https://www.usj.co.jp/web/en/us/service-guide/parkmap" target="_blank" rel="noopener noreferrer">USJ 官方地圖</a>
+                            </div>
+                        </article>
+                        <article class="spot-card">
+                            <img src="https://images.unsplash.com/photo-1578271887552-5ac3a72752bc?auto=format&fit=crop&w=1400&q=80" alt="哈利波特與夜間園區氛圍圖">
+                            <div class="spot-body">
+                                <h4 class="font-bold text-lg mb-2">Day3 重點：熱門設施排程</h4>
+                                <p>先完成 Mario Kart、Yoshi 與 Forbidden Journey，再把夜間時段留給點燈後的任天堂或哈利波特區，拍照與排隊都更友善。</p>
+                                <a class="spot-link" href="https://www.usj.co.jp/web/en/us/park-guide/schedule/park-hour" target="_blank" rel="noopener noreferrer">USJ 營運時間與表演表</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="mt-8 grid md:grid-cols-2 gap-8">
+                        <figure>
+                            <h4 class="font-bold mb-3 text-lg">Day 2 參考圖（image5.png）</h4>
+                            <img
+                                src="docx_extract/unzipped/word/media/image5.png"
+                                alt="Day2 行程參考圖"
+                                class="w-full rounded-xl border border-yellow-200 shadow-sm zoomable"
+                                loading="lazy"
+                                data-zoom-src="docx_extract/unzipped/word/media/image5.png"
+                            >
+                            <figcaption class="mt-3 text-base leading-7 text-gray-700">點擊可放大查看 Day2 動線，建議把整理券、用餐與退稅時段先寫進手機記事本，入園後執行會更快。</figcaption>
+                        </figure>
+                        <figure>
+                            <h4 class="font-bold mb-3 text-lg">Day 3 參考圖（image6.png）</h4>
+                            <img
+                                src="docx_extract/unzipped/word/media/image6.png"
+                                alt="Day3 行程參考圖"
+                                class="w-full rounded-xl border border-yellow-200 shadow-sm zoomable"
+                                loading="lazy"
+                                data-zoom-src="docx_extract/unzipped/word/media/image6.png"
+                            >
+                            <figcaption class="mt-3 text-base leading-7 text-gray-700">點擊可放大查看 Day3 全日排程，先衝熱門設施、中段安排室內體驗，能把體力與排隊時間控制得更穩。</figcaption>
+                        </figure>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 mt-8">
+                        <div class="trip-table-wrap">
+                            <h4 class="trip-table-title">Day2 交通時間 / 預估費用</h4>
+                            <table class="trip-table">
+                                <tbody>
+                                    <tr>
+                                        <th>飯店 ↔ USJ</th>
+                                        <td>步行約 5-10 分鐘，交通費 0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Captain Line（可選）</th>
+                                        <td>船程約 10 分鐘，約 900 / 1700 日圓（單程/來回）</td>
+                                    </tr>
+                                    <tr>
+                                        <th>園區預算</th>
+                                        <td>Power Up Band 約 4900 日圓；餐飲每人約 2000-3500 日圓</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="trip-table-wrap">
+                            <h4 class="trip-table-title">Day3 交通時間 / 預估費用</h4>
+                            <table class="trip-table">
+                                <tbody>
+                                    <tr>
+                                        <th>飯店 → USJ 排隊</th>
+                                        <td>步行約 10 分鐘，建議 07:30 前到</td>
+                                    </tr>
+                                    <tr>
+                                        <th>園區全日支出</th>
+                                        <td>餐飲與點心每人約 3000-5000 日圓</td>
+                                    </tr>
+                                    <tr>
+                                        <th>紀念品/退稅</th>
+                                        <td>單日未稅滿 5000 日圓可退稅（實退約 6.7%）</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 4 -->
+            <section id="day-4" class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="bg-blue-600 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/20 (週三)</span>
+                        <h2 class="text-3xl font-bold">DAY 4: 海遊館 & 寶可夢中心</h2>
+                    </div>
+                    <div class="bg-blue-400 p-3 rounded-full"><i data-lucide="waves"></i></div>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-blue-700">🚢 海遊館接駁船 (Captain Line)</h4>
+                                <p class="text-sm text-gray-600">飯店後方「環球城港口」搭船，10分鐘抵達海遊館。必看：鯨鯊、企鵝、海豹。</p>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-xl border border-orange-100">
+                                <h4 class="font-bold text-orange-700">新飯店入住：karaksa hotel grande</h4>
+                                <p class="text-sm text-gray-600">下午搭乘前往【新大阪】站，位置極佳。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-pink-600">👾 寶可夢中心 (Osaka DX)</h4>
+                                <p class="text-sm text-gray-600">搭乘御堂筋線至【梅田】大丸梅田店 13F。寶可夢迷天堂！</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <article class="spot-card">
+                                <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1400&q=80" alt="海遊館外觀與港灣氛圍">
+                                <div class="spot-body">
+                                    <h4 class="font-bold text-lg mb-2">海遊館動線建議</h4>
+                                    <p>海遊館採上樓後螺旋式下行參觀，建議先把鯨鯊所在的太平洋大水槽排進第一優先，再回看海豹與企鵝區，整體節奏最順。</p>
+                                    <a class="spot-link" href="https://www.kaiyukan.com/language/eng/explore.html" target="_blank" rel="noopener noreferrer">海遊館展區資訊</a>
+                                </div>
+                            </article>
+                            <article class="spot-card">
+                                <img src="https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=1400&q=80" alt="大阪市區與購物夜景氛圍">
+                                <div class="spot-body">
+                                    <h4 class="font-bold text-lg mb-2">寶可夢中心採買建議</h4>
+                                    <p>晚間移動到心齋橋或梅田店時，先看限定商品與玩偶櫃，再補文具與伴手禮，能避免熱門款後段時段缺貨。</p>
+                                    <a class="spot-link" href="https://www.google.com/maps/search/Pokemon+Center+Osaka+DX" target="_blank" rel="noopener noreferrer">Pokémon Center Osaka DX 地圖</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="trip-table-wrap">
+                        <h4 class="trip-table-title">交通時間 / 預估費用</h4>
+                        <table class="trip-table">
+                            <tbody>
+                                <tr>
+                                    <th>USJ 港口 → 海遊館</th>
+                                    <td>Captain Line 約 10 分鐘，單程約 900 日圓</td>
+                                </tr>
+                                <tr>
+                                    <th>海遊館 → 新大阪飯店</th>
+                                    <td>約 45-60 分鐘，約 430-600 日圓/人</td>
+                                </tr>
+                                <tr>
+                                    <th>新大阪 → 心齋橋/梅田</th>
+                                    <td>約 8-15 分鐘，約 240-290 日圓/人</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 5 -->
+            <section id="day-5" class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="bg-green-700 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/21 (週四)</span>
+                        <h2 class="text-3xl font-bold">DAY 5: 奈良古都神鹿之旅</h2>
+                    </div>
+                    <div class="bg-green-500 p-3 rounded-full text-white">🦌</div>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-4">
+                            <h4 class="font-bold">路線：新大阪 → 奈良</h4>
+                            <ul class="text-sm list-disc list-inside space-y-2 text-gray-600">
+                                <li><strong>奈良公園：</strong> 餵鹿餅 (200日圓)。</li>
+                                <li><strong>東大寺：</strong> 參拜巨大佛像。</li>
+                                <li><strong>春日大社：</strong> 欣賞萬燈籠與森林步道。</li>
+                                <li><strong>興福寺：</strong> 觀看五重塔。</li>
+                            </ul>
+                            <a href="https://www.google.com/maps/search/Nara+Park+Todaiji+Kasuga+Taisha" target="_blank" class="inline-block mt-2 text-xs text-blue-600 underline">查看奈良景點地圖</a>
+                        </div>
+                        <div class="space-y-4">
+                            <article class="spot-card">
+                                <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=1400&q=80" alt="奈良公園與鹿群散步景觀">
+                                <div class="spot-body">
+                                    <h4 class="font-bold text-lg mb-2">奈良公園與鹿互動</h4>
+                                    <p>奈良公園約有超過千隻鹿自由活動，餵鹿餅時建議手勢乾淨俐落、不要逗弄，避免被追著要食物，親子同行更安全。</p>
+                                    <a class="spot-link" href="https://www.google.com/maps/place/Nara+Park" target="_blank" rel="noopener noreferrer">奈良公園地圖</a>
+                                </div>
+                            </article>
+                            <article class="spot-card">
+                                <img src="https://images.unsplash.com/photo-1617196035154-1e4b6f7b52b4?auto=format&fit=crop&w=1400&q=80" alt="東大寺與古都寺院氛圍">
+                                <div class="spot-body">
+                                    <h4 class="font-bold text-lg mb-2">東大寺與春日大社串聯</h4>
+                                    <p>東大寺大佛殿建議上午先走，接著沿林道往春日大社千燈籠，再回興福寺，這條順時針路線最省腳力也最好拍。</p>
+                                    <a class="spot-link" href="https://www.google.com/maps/dir/Todai-ji+Temple/Kasuga+Taisha/Kofuku-ji+Temple" target="_blank" rel="noopener noreferrer">奈良寺社散策路線</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="trip-table-wrap">
+                        <h4 class="trip-table-title">交通時間 / 預估費用</h4>
+                        <table class="trip-table">
+                            <tbody>
+                                <tr>
+                                    <th>新大阪 → 大阪 → 奈良</th>
+                                    <td>約 55-70 分鐘，約 820-980 日圓/人</td>
+                                </tr>
+                                <tr>
+                                    <th>奈良市內步行 + 公車</th>
+                                    <td>半日到一日，公車單次約 220 日圓</td>
+                                </tr>
+                                <tr>
+                                    <th>景點門票</th>
+                                    <td>東大寺大佛殿約 800 日圓；鹿餅約 200 日圓</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 6 -->
+            <section id="day-6" class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="bg-red-700 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/22 (週五)</span>
+                        <h2 class="text-3xl font-bold">DAY 6: 大阪市區血拼美食</h2>
+                    </div>
+                    <div class="bg-red-400 p-3 rounded-full"><i data-lucide="shopping-cart"></i></div>
+                </div>
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h4 class="font-bold mb-3">吃貨行程攻略</h4>
+                            <ul class="text-sm space-y-3">
+                                <li><strong>黑門市場：</strong> 必吃新鮮海產 (早午餐)。</li>
+                                <li><strong>道頓堀：</strong> 固力果跑跑人合照，一蘭拉麵、大阪燒。</li>
+                                <li><strong>心齋橋：</strong> 藥妝店、雜貨採購。</li>
+                                <li><strong>老爺爺蛋糕：</strong> 必買剛出爐起司蛋糕。</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <article class="spot-card">
+                                <img src="https://images.unsplash.com/photo-1590559899731-a382839e5548?auto=format&fit=crop&w=1400&q=80" alt="道頓堀與固力果招牌夜景">
+                                <div class="spot-body">
+                                    <h4 class="font-bold text-lg mb-2">道頓堀與心齋橋節奏</h4>
+                                    <p>道頓堀晚間燈光最有氣氛，先拍固力果跑步人後往心齋橋商店街回走，購物與餐廳選擇多，動線不需要來回折返。</p>
+                                    <a class="spot-link" href="https://www.google.com/maps/dir/Dotonbori/Shinsaibashi-Suji+Shopping+Street" target="_blank" rel="noopener noreferrer">道頓堀到心齋橋路線</a>
+                                </div>
+                            </article>
+                            <article class="spot-card">
+                                <img src="https://images.unsplash.com/photo-1554797589-7241bb691972?auto=format&fit=crop&w=1400&q=80" alt="黑門市場海鮮與市場氛圍">
+                                <div class="spot-body">
+                                    <h4 class="font-bold text-lg mb-2">黑門市場美食建議</h4>
+                                    <p>黑門市場白天店家最齊，建議先吃海鮮與現烤料理，再安排甜點與伴手禮採買，避免晚段熱門攤位提早收攤。</p>
+                                    <a class="spot-link" href="https://www.google.com/maps/place/Kuromon+Ichiba+Market" target="_blank" rel="noopener noreferrer">黑門市場地圖</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="trip-table-wrap">
+                        <h4 class="trip-table-title">交通時間 / 預估費用</h4>
+                        <table class="trip-table">
+                            <tbody>
+                                <tr>
+                                    <th>新大阪 → 難波/道頓堀</th>
+                                    <td>約 15 分鐘，約 290 日圓/人</td>
+                                </tr>
+                                <tr>
+                                    <th>難波 ↔ 心齋橋 ↔ 黑門市場</th>
+                                    <td>步行 10-25 分鐘，地鐵單次約 190-240 日圓</td>
+                                </tr>
+                                <tr>
+                                    <th>餐飲預算</th>
+                                    <td>每人約 3000-6000 日圓（依海鮮與餐廳選擇）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Day 7 -->
+            <section id="day-7" class="bg-gray-100 rounded-3xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="bg-gray-600 text-white p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-sm opacity-70 uppercase tracking-widest">5/23 (週六)</span>
+                        <h2 class="text-3xl font-bold">DAY 7: 滿載而歸</h2>
+                    </div>
+                    <div class="bg-white text-gray-800 p-3 rounded-full"><i data-lucide="home"></i></div>
+                </div>
+                <div class="p-8">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-1 space-y-4">
+                            <h4 class="font-bold">返台計畫</h4>
+                            <p class="text-sm">09:30 從新大阪出發 → 搭乘【Haruka Express】直達關西機場。</p>
+                            <p class="text-sm text-red-600 font-bold">CI157 | 13:10 起飛 | 建議 11:00 前抵達機場辦理登機。</p>
+                        </div>
+                        <div class="flex-1 bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
+                            <h5 class="font-bold text-gray-500 mb-2">行李檢查清單</h5>
+                            <div class="flex justify-center gap-4 text-xs font-medium">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full">護照/機票</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full">ICOCA/票券</span>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full">Wi-Fi/Sim卡</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trip-table-wrap">
+                        <h4 class="trip-table-title">交通時間 / 預估費用</h4>
+                        <table class="trip-table">
+                            <tbody>
+                                <tr>
+                                    <th>新大阪 → 關西機場</th>
+                                    <td>HARUKA 約 50 分鐘，建議 09:30 出發</td>
+                                </tr>
+                                <tr>
+                                    <th>車資</th>
+                                    <td>約 2300-3000 日圓/人（依票種）</td>
+                                </tr>
+                                <tr>
+                                    <th>機場緩衝時間</th>
+                                    <td>建議保留 2.5 小時以上辦理報到與安檢</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Practical Tools Section -->
+        <section class="mt-20 bg-gray-800 rounded-3xl p-8 text-white">
+            <h3 class="text-2xl font-bold mb-6 text-center">實用查詢工具</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="https://world.jorudan.co.jp/mln/zh-tw/" target="_blank" class="bg-gray-700 p-6 rounded-2xl hover:bg-gray-600 transition-colors block text-center">
+                    <i data-lucide="map" class="mx-auto mb-3"></i>
+                    <h5 class="font-bold">Japan Transit Planner</h5>
+                    <p class="text-xs opacity-70 mt-2">查詢精準車資、轉乘與時間</p>
+                </a>
+                <div class="bg-gray-700 p-6 rounded-2xl text-center">
+                    <i data-lucide="info" class="mx-auto mb-3"></i>
+                    <h5 class="font-bold">USJ 官網</h5>
+                    <p class="text-xs opacity-70 mt-2">確認營業時間與表演時刻表</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-2xl text-center">
+                    <i data-lucide="help-circle" class="mx-auto mb-3"></i>
+                    <h5 class="font-bold">緊急連絡</h5>
+                    <p class="text-xs opacity-70 mt-2">保存保險與駐日代表處電話</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 text-center text-gray-500 text-sm">
+        <p>© 2026 Osaka Nara Travel Planner. Have a nice trip!</p>
+    </footer>
+
+    <div id="zoom-modal" class="zoom-modal" aria-hidden="true">
+        <button id="zoom-close" class="zoom-close" aria-label="關閉放大圖片">x</button>
+        <img id="zoom-image" src="" alt="放大檢視圖">
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        function scrollToDay(day) {
+            const elementId = day >= 2 && day <= 3 ? 'day-2-3' : `day-${day}`;
+            const element = document.getElementById(elementId);
+            if (element) {
+                const offset = 80; // Adjust for sticky header
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        const zoomModal = document.getElementById('zoom-modal');
+        const zoomImage = document.getElementById('zoom-image');
+        const zoomClose = document.getElementById('zoom-close');
+        const zoomableImages = document.querySelectorAll('.zoomable');
+
+        zoomableImages.forEach((img) => {
+            img.addEventListener('click', () => {
+                const source = img.getAttribute('data-zoom-src') || img.getAttribute('src');
+                zoomImage.setAttribute('src', source);
+                zoomImage.setAttribute('alt', img.getAttribute('alt') || '放大檢視圖');
+                zoomModal.classList.add('open');
+                zoomModal.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        function closeZoomModal() {
+            zoomModal.classList.remove('open');
+            zoomModal.setAttribute('aria-hidden', 'true');
+            zoomImage.setAttribute('src', '');
+        }
+
+        zoomClose.addEventListener('click', closeZoomModal);
+        zoomModal.addEventListener('click', (event) => {
+            if (event.target === zoomModal) {
+                closeZoomModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && zoomModal.classList.contains('open')) {
+                closeZoomModal();
+            }
+        });
+
+        const favoriteStorageKey = 'osakaTripFavoritesV1';
+        const favoritesList = document.getElementById('favorites-list');
+        const favoritesEmpty = document.getElementById('favorites-empty');
+
+        function getFavorites() {
+            try {
+                const raw = localStorage.getItem(favoriteStorageKey);
+                const parsed = raw ? JSON.parse(raw) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function setFavorites(favorites) {
+            localStorage.setItem(favoriteStorageKey, JSON.stringify(favorites));
+        }
+
+        function renderFavorites() {
+            const favorites = getFavorites();
+            favoritesList.innerHTML = '';
+
+            if (favorites.length === 0) {
+                favoritesEmpty.style.display = 'block';
+                return;
+            }
+
+            favoritesEmpty.style.display = 'none';
+            favorites.forEach((item) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.day}｜${item.title}`;
+                favoritesList.appendChild(li);
+            });
+        }
+
+        function toggleFavorite(item, button) {
+            const favorites = getFavorites();
+            const exists = favorites.some((fav) => fav.id === item.id);
+
+            if (exists) {
+                const next = favorites.filter((fav) => fav.id !== item.id);
+                setFavorites(next);
+                button.classList.remove('active');
+                button.textContent = '收藏到我的行程';
+            } else {
+                favorites.push(item);
+                setFavorites(favorites);
+                button.classList.add('active');
+                button.textContent = '已收藏';
+            }
+
+            renderFavorites();
+        }
+
+        const spotCards = document.querySelectorAll('.spot-card');
+        spotCards.forEach((card, index) => {
+            const body = card.querySelector('.spot-body');
+            if (!body) return;
+
+            const titleElement = body.querySelector('h4, h5');
+            const section = card.closest('section');
+            const dayElement = section ? section.querySelector('h2') : null;
+            const title = titleElement ? titleElement.textContent.trim() : `景點${index + 1}`;
+            const day = dayElement ? dayElement.textContent.trim() : '行程景點';
+            const id = `${section ? section.id : 'section'}-${title}`;
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'favorite-btn';
+
+            const isFavorite = getFavorites().some((fav) => fav.id === id);
+            button.textContent = isFavorite ? '已收藏' : '收藏到我的行程';
+            if (isFavorite) {
+                button.classList.add('active');
+            }
+
+            button.addEventListener('click', () => {
+                toggleFavorite({ id, day, title }, button);
+            });
+
+            body.appendChild(button);
+        });
+
+        renderFavorites();
+    </script>
+    </body>
+    </html>
